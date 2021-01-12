@@ -1,9 +1,17 @@
 import React from "react";
 import getUser from "../../utils/getUser";
 import getOrg from "../../utils/getOrg";
+import handleUserData from "../../utils/handleUserData";
+interface User {
+  avatar_url: string;
+  html_url: string;
+  login: string;
+  selected: boolean;
+}
 
+interface UserData extends Array<User> {}
 interface SearchProps {
-  // userData: any;
+  userData: UserData;
   setUserData: any;
 }
 
@@ -37,9 +45,13 @@ function Search(props: SearchProps) {
           onClick={(event) => {
             event.preventDefault();
             if (searchType === "user") {
-              getUser(searchText).then((data) => console.log(data));
+              getUser(searchText)
+                .then((rawData) => handleUserData(rawData))
+                .then(console.log);
             } else if (searchType === "organisation") {
-              getOrg(searchText).then((data) => console.log(data));
+              getOrg(searchText)
+                .then((rawData) => handleUserData(rawData))
+                .then(console.log);
             }
           }}
         >
