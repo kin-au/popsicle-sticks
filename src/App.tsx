@@ -2,30 +2,29 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
+import PopsicleArea from "./components/PopsicleArea/PopsicleArea";
 
 interface User {
-  avatar_url: string;
-  html_url: string;
-  login: string;
+  avatar: string;
+  url: string;
+  username: string;
+  id: number;
   selected: boolean;
 }
 
 interface UserData extends Array<User> {}
 
-// user object - same as organisation (users in array)
-// avatar_url: "https://avatars3.githubusercontent.com/u/67898321?v=4"
-// html_url: "https://github.com/kin-au"
-// login: "kin-au"
-// construct an object for each user fetched, push users to userData array
+// need to add a check for duplicates (using id)
+// if duplicate, do not add to userData, and show message/alert to user
 
 function App() {
   const [userData, setUserData] = React.useState<UserData | []>([]);
-  // const [usersList, setUsersList] = React.useState(null)
 
   return (
     <>
       <Header title="Popsicle sticks" />
       <Search userData={userData} setUserData={setUserData} />
+      <PopsicleArea userData={userData} setUserData={setUserData} />
     </>
   );
 }
