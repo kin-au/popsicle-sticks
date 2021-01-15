@@ -11,11 +11,11 @@ interface User {
   selected: boolean;
 }
 
-interface UserData extends Array<User> {}
+interface UserList extends Array<User> {}
 
 interface SearchProps {
-  userData: UserData;
-  setUserData: any;
+  userList: UserList;
+  setUserList: any;
 }
 
 function Search(props: SearchProps) {
@@ -51,13 +51,13 @@ function Search(props: SearchProps) {
               getUser(searchText)
                 .then((rawData) => handleUserData(rawData, "user"))
                 .then((data) =>
-                  props.setUserData([...props.userData, ...data])
+                  props.setUserList([...props.userList, ...data])
                 );
             } else if (searchType === "organisation") {
               getOrg(searchText)
                 .then((rawData) => handleUserData(rawData, "org"))
                 .then((data) =>
-                  props.setUserData([...props.userData, ...data])
+                  props.setUserList([...props.userList, ...data])
                 );
             }
           }}

@@ -8,19 +8,19 @@ interface User {
   selected: boolean;
 }
 
-interface UserData extends Array<User> {}
+interface UserList extends Array<User> {}
 
 interface PopsicleAreaProps {
-  userData: UserData;
-  setUserData: any;
+  userList: UserList;
+  setUserList: any;
 }
 
 function PopsicleArea(props: PopsicleAreaProps) {
   return (
     <>
       <h2>popsicle area</h2>
-      {props.userData
-        ? props.userData.map((user) => {
+      {props.userList
+        ? props.userList.map((user) => {
             return <p key={user.username}>{user.username}</p>;
           })
         : null}

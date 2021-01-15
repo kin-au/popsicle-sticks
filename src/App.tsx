@@ -12,19 +12,20 @@ interface User {
   selected: boolean;
 }
 
-interface UserData extends Array<User> {}
+interface UserList extends Array<User> {}
 
 // need to add a check for duplicates (using id)
-// if duplicate, do not add to userData, and show message/alert to user
+// if duplicate, do not add to userList, and show message/alert to user
 
 function App() {
-  const [userData, setUserData] = React.useState<UserData | []>([]);
+  // const [user, setUser] = React.useState<User | {}>({});
+  const [userList, setUserList] = React.useState<UserList | []>([]);
 
   return (
     <>
       <Header title="Popsicle sticks" />
-      <Search userData={userData} setUserData={setUserData} />
-      <PopsicleArea userData={userData} setUserData={setUserData} />
+      <Search userList={userList} setUserList={setUserList} />
+      <PopsicleArea userList={userList} setUserList={setUserList} />
     </>
   );
 }
