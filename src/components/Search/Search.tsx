@@ -1,7 +1,7 @@
 import React from "react";
-import getUser from "../../utils/getUser";
-import getOrg from "../../utils/getOrg";
+import getData from "../../utils/getData";
 import handleUserData from "../../utils/handleUserData";
+import checkDuplicates from "../../utils/checkDuplicates";
 
 interface User {
   avatar: string;
@@ -13,6 +13,8 @@ interface User {
 
 interface UserList extends Array<User> {}
 
+type DataType = "user" | "organisation" | any;
+
 interface SearchProps {
   userList: UserList;
   setUserList: any;
@@ -20,7 +22,7 @@ interface SearchProps {
 
 function Search(props: SearchProps) {
   const [searchText, setSearchText] = React.useState("");
-  const [searchType, setSearchType] = React.useState("user");
+  const [searchType, setSearchType] = React.useState<DataType>("user");
 
   return (
     <>
@@ -31,7 +33,9 @@ function Search(props: SearchProps) {
           type="search"
           placeholder="Find a GitHub user or organisation"
           value={searchText}
-          onChange={(event) => setSearchText(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
+            setSearchText(event.target.value)
+          }
           autoFocus
           required
         ></input>
@@ -39,7 +43,9 @@ function Search(props: SearchProps) {
         <select
           id="searchtype"
           value={searchType}
-          onChange={(event) => setSearchType(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLSelectElement>): void =>
+            setSearchType(event.target.value)
+          }
         >
           <option value="user">User</option>
           <option value="organisation">Organisation</option>
@@ -47,19 +53,11 @@ function Search(props: SearchProps) {
         <button
           onClick={(event) => {
             event.preventDefault();
-            if (searchType === "user") {
-              getUser(searchText)
-                .then((rawData) => handleUserData(rawData, "user"))
-                .then((data) =>
-                  props.setUserList([...props.userList, ...data])
-                );
-            } else if (searchType === "organisation") {
-              getOrg(searchText)
-                .then((rawData) => handleUserData(rawData, "org"))
-                .then((data) =>
-                  props.setUserList([...props.userList, ...data])
-                );
-            }
+            getData(searchType, searchText)
+              .then((rawData) => handleUserData(rawData, searchType))
+              .then((data) => checkDuplicates(props.userList, data))
+              .then((data) => props.setUserList([...props.userList, ...data]));
+            setSearchText("");
           }}
         >
           Add

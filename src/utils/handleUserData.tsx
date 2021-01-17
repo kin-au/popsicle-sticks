@@ -6,11 +6,11 @@ interface User {
   selected: boolean;
 }
 
-interface UserData extends Array<User> {}
+interface UserList extends Array<User> {}
 
-type DataType = "user" | "org";
+type DataType = "user" | "organisation";
 
-const handleUserData = (rawData: any, dataType: DataType): UserData => {
+const handleUserData = (rawData: any, dataType: DataType): UserList => {
   let data = [];
   if (dataType === "user") {
     data = [
@@ -22,7 +22,7 @@ const handleUserData = (rawData: any, dataType: DataType): UserData => {
         selected: false,
       },
     ];
-  } else if (dataType === "org") {
+  } else if (dataType === "organisation") {
     data = rawData.map((user: any) => {
       return {
         avatar: user.avatar_url,
