@@ -6,10 +6,10 @@ interface User {
   selected: boolean;
 }
 
-interface UserData extends Array<User> {}
+interface UserList extends Array<User> {}
 
-const checkDuplicates = (existingUsers: UserData, usersToCheck: UserData) => {
-  let newUsers: UserData = [];
+const checkDuplicates = (existingUsers: UserList, usersToCheck: UserList) => {
+  let newUsers: UserList = [];
   usersToCheck.forEach((userToCheck) => {
     if (
       existingUsers.find((existingUser) => existingUser.id === userToCheck.id)
