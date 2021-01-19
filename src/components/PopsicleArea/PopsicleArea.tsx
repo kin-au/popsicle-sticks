@@ -1,5 +1,4 @@
 import React from "react";
-import PopsicleStick from "../PopsicleStick/PopsicleStick";
 
 interface User {
   avatar: string;
@@ -12,8 +11,8 @@ interface User {
 interface UserList extends Array<User> {}
 
 interface PopsicleAreaProps {
-  user: User;
-  setUser: any;
+  // user: User;
+  // setUser: any;
   userList: UserList;
   setUserList: any;
 }
@@ -23,10 +22,24 @@ function PopsicleArea(props: PopsicleAreaProps) {
     <>
       <h2>popsicle area</h2>
       {props.userList
-        ? props.userList.map((person) => {
-            props.setUser(person);
-            return <PopsicleStick user={props.user} />;
-            // return <p key={user.username}>{user.username}</p>;
+        ? props.userList.map((user: User) => {
+            return (
+              <div key={user.id}>
+                <p>{user.username}</p>;
+                <button
+                  onClick={() => {
+                    let newArr = [...props.userList];
+                    const removeIndex = newArr.indexOf(
+                      newArr.find((newUser) => newUser.id === user.id)!
+                    );
+                    newArr.splice(removeIndex, 1);
+                    props.setUserList(newArr);
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            );
           })
         : null}
     </>

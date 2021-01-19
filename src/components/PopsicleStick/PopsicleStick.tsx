@@ -21,7 +21,7 @@ function PopsicleStick(props: PopsicleStickProps) {
   return (
     <>
       <p>{props.user.username}</p>
-      <img src={props.user.avatar} alt="avatar" />
+      {/* <img src={props.user.avatar} alt="avatar" /> */}
       <button>Remove</button>
     </>
   );
