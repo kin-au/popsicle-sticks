@@ -8,18 +8,19 @@ interface User {
 
 interface UserList extends Array<User> {}
 
-const checkDuplicates = (existingUsers: UserList, usersToCheck: UserList) => {
-  let newUsers: UserList = [];
-  usersToCheck.forEach((userToCheck) => {
-    if (
-      existingUsers.find((existingUser) => existingUser.id === userToCheck.id)
-    ) {
-      window.alert(`Unable to add duplicate user: ${userToCheck.username}`);
+const checkDuplicates = (
+  existingUsers: UserList,
+  newUsers: UserList
+): UserList => {
+  let uniqueUsers: UserList = [];
+  newUsers.forEach((user) => {
+    if (existingUsers.find((existingUser) => existingUser.id === user.id)) {
+      window.alert(`Unable to add duplicate user: ${user.username}`);
     } else {
-      newUsers.push(userToCheck);
+      uniqueUsers.push(user);
     }
   });
-  return newUsers;
+  return uniqueUsers;
 };
 
 export default checkDuplicates;
