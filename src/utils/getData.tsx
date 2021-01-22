@@ -2,14 +2,6 @@ type DataType = "user" | "organisation";
 
 const token: string = process.env.GITHUB_TOKEN!;
 
-const checkResponse = (response: any) => {
-  if (response.status !== 200) {
-    console.log(`Request error code: ${response.status}`);
-    return;
-  }
-  return response.json();
-};
-
 const getData = (searchType: DataType, searchText: string) => {
   let url: string = "";
   if (searchType === "user") {
@@ -24,7 +16,13 @@ const getData = (searchType: DataType, searchText: string) => {
       token: token,
     },
   })
-    .then(checkResponse)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        window.alert(`Unable to find ${searchType}: ${searchText}`);
+      }
+    })
     .catch((err) => {
       throw new Error(`getData failed with error: ${err}`);
     });
