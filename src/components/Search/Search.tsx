@@ -18,6 +18,8 @@ type DataType = "user" | "organisation" | any;
 interface SearchProps {
   userList: UserList;
   setUserList: any;
+  disableElement: boolean;
+  setDisableElement: any;
 }
 
 function Search(props: SearchProps) {
@@ -29,6 +31,7 @@ function Search(props: SearchProps) {
       <form>
         <label htmlFor="searchtext">Search</label>
         <input
+          disabled={props.disableElement}
           id="searchtext"
           type="search"
           placeholder="Find a GitHub user or organisation"
@@ -41,6 +44,7 @@ function Search(props: SearchProps) {
         ></input>
         <label htmlFor="searchtype">Type</label>
         <select
+          disabled={props.disableElement}
           id="searchtype"
           value={searchType}
           onChange={(event: React.ChangeEvent<HTMLSelectElement>): void =>
@@ -51,6 +55,7 @@ function Search(props: SearchProps) {
           <option value="organisation">Organisation</option>
         </select>
         <button
+          disabled={props.disableElement}
           onClick={(event) => {
             event.preventDefault();
             getData(searchType, searchText)

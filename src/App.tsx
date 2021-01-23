@@ -17,16 +17,24 @@ interface UserList extends Array<User> {}
 function App() {
   // const [user, setUser] = React.useState<User | any>({});
   const [userList, setUserList] = React.useState<UserList | []>([]);
+  const [disableElement, setDisableElement] = React.useState<boolean>(false);
 
   return (
     <>
       <Header title="Popsicle sticks" />
-      <Search userList={userList} setUserList={setUserList} />
+      <Search
+        userList={userList}
+        setUserList={setUserList}
+        disableElement={disableElement}
+        setDisableElement={setDisableElement}
+      />
       <PopsicleArea
         // user={user}
         // setUser={setUser}
         userList={userList}
         setUserList={setUserList}
+        disableElement={disableElement}
+        setDisableElement={setDisableElement}
       />
     </>
   );
