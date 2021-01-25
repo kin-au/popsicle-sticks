@@ -1,5 +1,5 @@
 import React from "react";
-import pickRandomPopsicle from "../../utils/pickRandomPopsicle";
+import SelectedPopsicle from "../SelectedPopsicle/SelectedPopsicle";
 
 interface User {
   avatar: string;
@@ -16,13 +16,13 @@ interface PopsicleAreaProps {
   // setUser: any;
   userList: UserList;
   setUserList: any;
+  selectedUser: any;
+  setSelectedUser: any;
   disableElement: boolean;
   setDisableElement: any;
 }
 
 function PopsicleArea(props: PopsicleAreaProps) {
-  const [selectedUser, setSelectedUser] = React.useState<any>({} as any);
-
   return (
     <>
       <h2>popsicle pot</h2>
@@ -48,43 +48,15 @@ function PopsicleArea(props: PopsicleAreaProps) {
             );
           })
         : null}
-      {Object.keys(selectedUser).length === 0 &&
-      selectedUser.constructor === Object ? null : (
-        <div>
-          <h1>{selectedUser.username}</h1>
-          <button
-            onClick={() => {
-              setSelectedUser({});
-              props.setDisableElement(false);
-            }}
-          >
-            OK
-          </button>
-        </div>
+      {Object.keys(props.selectedUser).length === 0 &&
+      props.selectedUser.constructor === Object ? null : (
+        <SelectedPopsicle
+          selectedUser={props.selectedUser}
+          setSelectedUser={props.setSelectedUser}
+          disableElement={props.disableElement}
+          setDisableElement={props.setDisableElement}
+        />
       )}
-      {props.userList.length ? (
-        <button
-          disabled={props.disableElement}
-          onClick={() => {
-            setSelectedUser(pickRandomPopsicle(props.userList));
-            props.setDisableElement(true);
-          }}
-        >
-          Random popsicle
-        </button>
-      ) : null}
-      {props.userList.length ? (
-        <button
-          disabled={props.disableElement}
-          onClick={() => {
-            setSelectedUser({});
-            props.setUserList([]);
-            props.setDisableElement(false);
-          }}
-        >
-          Remove all popsicles
-        </button>
-      ) : null}
     </>
   );
 }
