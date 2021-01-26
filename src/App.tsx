@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Header title="Popsicle sticks" />
+      <Header />
       <Search
         userList={userList}
         setUserList={setUserList}

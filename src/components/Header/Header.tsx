@@ -1,13 +1,9 @@
 import React from "react";
 
-interface HeaderProps {
-  title: string;
-}
-
-function Header(props: HeaderProps) {
+function Header() {
   return (
     <>
-      <h1>{props.title}</h1>
+      <h1>Popsicle sticks</h1>
     </>
   );
 }

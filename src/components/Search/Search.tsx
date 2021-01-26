@@ -36,17 +36,18 @@ function Search(props: SearchProps) {
           type="search"
           placeholder="Find a GitHub user or organisation"
           value={searchText}
+          autoFocus
+          required
           onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
             setSearchText(event.target.value)
           }
-          autoFocus
-          required
         ></input>
         <label htmlFor="searchtype">Type</label>
         <select
           disabled={props.disableElement}
           id="searchtype"
           value={searchType}
+          required
           onChange={(event: React.ChangeEvent<HTMLSelectElement>): void =>
             setSearchType(event.target.value)
           }
@@ -56,6 +57,7 @@ function Search(props: SearchProps) {
         </select>
         <button
           disabled={props.disableElement}
+          type="button"
           onClick={(event) => {
             event.preventDefault();
             getData(searchType, searchText)
