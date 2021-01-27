@@ -16,36 +16,32 @@ interface ControlsProps {
   setUserList: any;
   selectedUser: any;
   setSelectedUser: any;
-  disableElement: boolean;
-  setDisableElement: any;
+  showingSelected: boolean;
+  setShowingSelected: any;
 }
 
 function Controls(props: ControlsProps) {
   return (
     <>
-      {props.userList.length ? (
-        <button
-          disabled={props.disableElement}
-          onClick={() => {
-            props.setSelectedUser(pickRandomPopsicle(props.userList));
-            props.setDisableElement(true);
-          }}
-        >
-          Random popsicle
-        </button>
-      ) : null}
-      {props.userList.length ? (
-        <button
-          disabled={props.disableElement}
-          onClick={() => {
-            props.setSelectedUser({});
-            props.setUserList([]);
-            props.setDisableElement(false);
-          }}
-        >
-          Remove all popsicles
-        </button>
-      ) : null}
+      <button
+        disabled={props.showingSelected || !props.userList.length}
+        onClick={() => {
+          props.setSelectedUser(pickRandomPopsicle(props.userList));
+          props.setShowingSelected(true);
+        }}
+      >
+        Random popsicle
+      </button>
+      <button
+        disabled={props.showingSelected || !props.userList.length}
+        onClick={() => {
+          props.setSelectedUser({});
+          props.setUserList([]);
+          props.setShowingSelected(false);
+        }}
+      >
+        Remove all popsicles
+      </button>
     </>
   );
 }

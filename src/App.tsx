@@ -18,7 +18,7 @@ interface UserList extends Array<User> {}
 function App() {
   // const [user, setUser] = React.useState<User | any>({});
   const [userList, setUserList] = React.useState<UserList | []>([]);
-  const [disableElement, setDisableElement] = React.useState<boolean>(false);
+  const [showingSelected, setShowingSelected] = React.useState<boolean>(false);
   const [selectedUser, setSelectedUser] = React.useState<any>({} as any);
 
   return (
@@ -27,8 +27,8 @@ function App() {
       <Search
         userList={userList}
         setUserList={setUserList}
-        disableElement={disableElement}
-        setDisableElement={setDisableElement}
+        showingSelected={showingSelected}
+        setShowingSelected={setShowingSelected}
       />
       <PopsicleArea
         // user={user}
@@ -37,16 +37,16 @@ function App() {
         setUserList={setUserList}
         selectedUser={selectedUser}
         setSelectedUser={setSelectedUser}
-        disableElement={disableElement}
-        setDisableElement={setDisableElement}
+        showingSelected={showingSelected}
+        setShowingSelected={setShowingSelected}
       />
       <Controls
         userList={userList}
         setUserList={setUserList}
         selectedUser={selectedUser}
         setSelectedUser={setSelectedUser}
-        disableElement={disableElement}
-        setDisableElement={setDisableElement}
+        showingSelected={showingSelected}
+        setShowingSelected={setShowingSelected}
       />
     </>
   );

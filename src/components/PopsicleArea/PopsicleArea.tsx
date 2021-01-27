@@ -18,8 +18,8 @@ interface PopsicleAreaProps {
   setUserList: any;
   selectedUser: any;
   setSelectedUser: any;
-  disableElement: boolean;
-  setDisableElement: any;
+  showingSelected: boolean;
+  setShowingSelected: any;
 }
 
 function PopsicleArea(props: PopsicleAreaProps) {
@@ -30,9 +30,9 @@ function PopsicleArea(props: PopsicleAreaProps) {
         ? props.userList.map((user: User) => {
             return (
               <div key={user.id}>
-                <p>{user.username}</p>;
+                <p>{user.username}</p>
                 <button
-                  disabled={props.disableElement}
+                  disabled={props.showingSelected}
                   onClick={() => {
                     let newArr = [...props.userList];
                     const removeIndex = newArr.indexOf(
@@ -53,8 +53,8 @@ function PopsicleArea(props: PopsicleAreaProps) {
         <SelectedPopsicle
           selectedUser={props.selectedUser}
           setSelectedUser={props.setSelectedUser}
-          disableElement={props.disableElement}
-          setDisableElement={props.setDisableElement}
+          showingSelected={props.showingSelected}
+          setShowingSelected={props.setShowingSelected}
         />
       )}
     </>

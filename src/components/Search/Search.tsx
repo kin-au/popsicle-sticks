@@ -18,8 +18,8 @@ type DataType = "user" | "organisation" | any;
 interface SearchProps {
   userList: UserList;
   setUserList: any;
-  disableElement: boolean;
-  setDisableElement: any;
+  showingSelected: boolean;
+  setShowingSelected: any;
 }
 
 function Search(props: SearchProps) {
@@ -31,7 +31,7 @@ function Search(props: SearchProps) {
       <form>
         <label htmlFor="searchtext">Search</label>
         <input
-          disabled={props.disableElement}
+          disabled={props.showingSelected}
           id="searchtext"
           type="search"
           placeholder="Find a GitHub user or organisation"
@@ -44,7 +44,7 @@ function Search(props: SearchProps) {
         ></input>
         <label htmlFor="searchtype">Type</label>
         <select
-          disabled={props.disableElement}
+          disabled={props.showingSelected}
           id="searchtype"
           value={searchType}
           required
@@ -56,7 +56,7 @@ function Search(props: SearchProps) {
           <option value="organisation">Organisation</option>
         </select>
         <button
-          disabled={props.disableElement}
+          disabled={props.showingSelected}
           type="button"
           onClick={(event) => {
             event.preventDefault();

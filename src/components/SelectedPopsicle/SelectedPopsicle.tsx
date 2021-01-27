@@ -3,8 +3,8 @@ import React from "react";
 interface SelectedPopsicleProps {
   selectedUser: any;
   setSelectedUser: any;
-  disableElement: boolean;
-  setDisableElement: any;
+  showingSelected: boolean;
+  setShowingSelected: any;
 }
 
 function SelectedPopsicle(props: SelectedPopsicleProps) {
@@ -15,7 +15,7 @@ function SelectedPopsicle(props: SelectedPopsicleProps) {
         <button
           onClick={() => {
             props.setSelectedUser({});
-            props.setDisableElement(false);
+            props.setShowingSelected(false);
           }}
         >
           OK
