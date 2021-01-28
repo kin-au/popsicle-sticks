@@ -10,7 +10,7 @@ interface UserList extends Array<User> {}
 
 const pickRandomPopsicle = (userList: UserList): User => {
   const user = userList[Math.floor(Math.random() * userList.length)];
-  user.selected = true;
+  // user.selected = true;
   return user;
 };
 

@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <>
-      <h1>Popsicle sticks</h1>
+      <h1>POPSICLE STICKS</h1>
     </>
   );
 }

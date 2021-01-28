@@ -51,6 +51,8 @@ function PopsicleArea(props: PopsicleAreaProps) {
       {Object.keys(props.selectedUser).length === 0 &&
       props.selectedUser.constructor === Object ? null : (
         <SelectedPopsicle
+          userList={props.userList}
+          setUserList={props.setUserList}
           selectedUser={props.selectedUser}
           setSelectedUser={props.setSelectedUser}
           showingSelected={props.showingSelected}
