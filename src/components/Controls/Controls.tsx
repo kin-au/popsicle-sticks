@@ -18,15 +18,30 @@ interface ControlsProps {
   setSelectedUser: any;
   showingSelected: boolean;
   setShowingSelected: any;
+  rememberSelected: boolean;
+  setRememberSelected: any;
 }
 
 function Controls(props: ControlsProps) {
   return (
     <>
+      <div>
+        <label htmlFor="rememberSelected">Remember Selected</label>
+        <input
+          disabled={props.showingSelected || !props.userList.length}
+          id="rememberSelected"
+          type="checkbox"
+          checked={props.rememberSelected}
+          onChange={() => props.setRememberSelected(!props.rememberSelected)}
+        />
+      </div>
       <button
         disabled={props.showingSelected || !props.userList.length}
         onClick={() => {
-          props.setSelectedUser(pickRandomPopsicle(props.userList));
+          const unselectedUserList = props.userList.filter((user: User) => {
+            return user.selected === false;
+          });
+          props.setSelectedUser(pickRandomPopsicle(unselectedUserList));
           props.setShowingSelected(true);
         }}
       >

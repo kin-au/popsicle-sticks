@@ -20,6 +20,7 @@ function App() {
   const [userList, setUserList] = React.useState<UserList | []>([]);
   const [showingSelected, setShowingSelected] = React.useState<boolean>(false);
   const [selectedUser, setSelectedUser] = React.useState<any>({} as any);
+  const [rememberSelected, setRememberSelected] = React.useState<boolean>(true);
 
   return (
     <>
@@ -39,6 +40,8 @@ function App() {
         setSelectedUser={setSelectedUser}
         showingSelected={showingSelected}
         setShowingSelected={setShowingSelected}
+        rememberSelected={rememberSelected}
+        setRememberSelected={setRememberSelected}
       />
       <Controls
         userList={userList}
@@ -47,6 +50,8 @@ function App() {
         setSelectedUser={setSelectedUser}
         showingSelected={showingSelected}
         setShowingSelected={setShowingSelected}
+        rememberSelected={rememberSelected}
+        setRememberSelected={setRememberSelected}
       />
     </>
   );
