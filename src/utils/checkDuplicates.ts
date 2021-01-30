@@ -1,12 +1,4 @@
-interface User {
-  avatar: string;
-  url: string;
-  username: string;
-  id: number;
-  selected: boolean;
-}
-
-interface UserList extends Array<User> {}
+import { UserList } from "../types";
 
 const checkDuplicates = (
   existingUsers: UserList,

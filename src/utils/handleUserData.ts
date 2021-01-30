@@ -6,12 +6,16 @@ interface User {
   selected: boolean;
 }
 
-interface UserList extends Array<User> {}
+// interface UserList extends Array<User> {}
+// same as writing:
+type UserList = User[];
 
 type DataType = "user" | "organisation";
 
 const handleUserData = (rawData: any, dataType: DataType): UserList => {
-  let data = [];
+  let data: UserList = [];
+  // OR can be written as (exactly the same, just your own pref)
+  // let data = [] as UserList;
   if (rawData) {
     if (dataType === "user") {
       data = [
@@ -31,7 +35,7 @@ const handleUserData = (rawData: any, dataType: DataType): UserList => {
           username: user.login,
           id: user.id,
           selected: false,
-        } as User;
+        };
       });
     }
   }
