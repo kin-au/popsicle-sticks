@@ -2,10 +2,10 @@ import { UserList } from "../../types";
 
 export interface PopsicleAreaProps {
   userList: UserList;
-  setUserList: any;
-  selectedUserId: any;
-  setSelectedUserId: any;
+  setUserList: React.Dispatch<React.SetStateAction<UserList>>;
+  selectedUserId: number | null;
+  setSelectedUserId: React.Dispatch<React.SetStateAction<number | null>>;
   disableInput: boolean;
   rememberSelected: boolean;
-  setRememberSelected: any;
+  setRememberSelected: React.Dispatch<React.SetStateAction<boolean>>;
 }
