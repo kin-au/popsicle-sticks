@@ -1,77 +1,49 @@
 import React from "react";
-import getData from "../../utils/getData";
-import handleUserData from "../../utils/handleUserData";
-import checkDuplicates from "../../utils/checkDuplicates";
+import { SearchProps } from "./types";
+import { SearchDataType } from "../../types";
 
-interface User {
-  avatar: string;
-  url: string;
-  username: string;
-  id: number;
-  selected: boolean;
-}
-
-interface UserList extends Array<User> {}
-
-type DataType = "user" | "organisation" | any;
-
-interface SearchProps {
-  userList: UserList;
-  setUserList: any;
-  showingSelected: boolean;
-  setShowingSelected: any;
-}
-
-function Search(props: SearchProps) {
+const Search = (props: SearchProps) => {
+  const { disableInput, searchUsers } = props;
   const [searchText, setSearchText] = React.useState("");
-  const [searchType, setSearchType] = React.useState<DataType>("user");
-
+  const [searchType, setSearchType] = React.useState<SearchDataType>("user");
+  const handleSubmit = async (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    await searchUsers(searchType, searchText);
+    setSearchText("");
+  };
   return (
-    <>
-      <form>
-        <label htmlFor="searchtext">Search</label>
-        <input
-          disabled={props.showingSelected}
-          id="searchtext"
-          type="search"
-          placeholder="Find a GitHub user or organisation"
-          value={searchText}
-          autoFocus
-          required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
-            setSearchText(event.target.value)
-          }
-        ></input>
-        <label htmlFor="searchtype">Type</label>
-        <select
-          disabled={props.showingSelected}
-          id="searchtype"
-          value={searchType}
-          required
-          onChange={(event: React.ChangeEvent<HTMLSelectElement>): void =>
-            setSearchType(event.target.value)
-          }
-        >
-          <option value="user">User</option>
-          <option value="organisation">Organisation</option>
-        </select>
-        <button
-          disabled={props.showingSelected}
-          type="button"
-          onClick={(event) => {
-            event.preventDefault();
-            getData(searchType, searchText)
-              .then((rawData) => handleUserData(rawData, searchType))
-              .then((data) => checkDuplicates(props.userList, data))
-              .then((data) => props.setUserList([...props.userList, ...data]));
-            setSearchText("");
-          }}
-        >
-          Add
-        </button>
-      </form>
-    </>
+    <form>
+      <label htmlFor="searchtext">Search</label>
+      <input
+        disabled={disableInput}
+        id="searchtext"
+        type="search"
+        placeholder="Find a GitHub user or organisation"
+        value={searchText}
+        autoFocus
+        required
+        onChange={(event) => setSearchText(event.target.value)}
+      ></input>
+      <label htmlFor="searchtype">Type</label>
+      <select
+        disabled={disableInput}
+        id="searchtype"
+        value={searchType}
+        required
+        onChange={(event) =>
+          setSearchType(event.target.value as SearchDataType)
+        }
+      >
+        <option value="user">User</option>
+        <option value="organisation">Organisation</option>
+      </select>
+      <button disabled={disableInput} type="submit" onClick={handleSubmit}>
+        Add
+      </button>
+    </form>
   );
-}
+};
 
 export default Search;

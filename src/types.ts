@@ -9,6 +9,8 @@ export type UserList = User[];
 
 export type SearchDataType = "user" | "organisation";
 
+export type GetDataResponse = UserResponse | OrganisationResponse;
+
 export interface UserResponse {
   login: string;
   id: number;
@@ -44,7 +46,7 @@ export interface UserResponse {
   updated_at: string;
 }
 
-export type OrganisationResponse = {
+export interface OrganisationUser {
   login: string;
   id: number;
   node_id: string;
@@ -63,4 +65,6 @@ export type OrganisationResponse = {
   received_events_url: string;
   type: string;
   site_admin: boolean;
-}[];
+}
+
+export type OrganisationResponse = OrganisationUser[];
