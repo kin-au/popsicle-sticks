@@ -1,64 +1,73 @@
 import React from "react";
-import pickRandomPopsicle from "../../utils/pickRandomPopsicle";
+import pickRandomPopsicleId from "../../utils/pickRandomPopsicleId";
+import { ControlsProps } from "./types";
 
-interface User {
-  avatar: string;
-  url: string;
-  username: string;
-  id: number;
-  selected: boolean;
-}
+const Controls = (props: ControlsProps) => {
+  const {
+    userList,
+    setUserList,
+    setSelectedUserId,
+    previouslySelectedUserId,
+    setPreviouslySelectedUserId,
+    disableInput,
+    rememberSelected,
+    setRememberSelected,
+  } = props;
 
-interface UserList extends Array<User> {}
+  const unselectedUserListId: number[] = userList
+    .filter((user) => {
+      const match = previouslySelectedUserId.find((id) => id === user.id);
+      return match ? null : user;
+    })
+    .map((user) => {
+      return user.id;
+    });
 
-interface ControlsProps {
-  userList: UserList;
-  setUserList: any;
-  selectedUser: any;
-  setSelectedUser: any;
-  showingSelected: boolean;
-  setShowingSelected: any;
-  rememberSelected: boolean;
-  setRememberSelected: any;
-}
+  const noUnselectedPopsicles: boolean =
+    !userList.length || userList.length === previouslySelectedUserId.length;
 
-function Controls(props: ControlsProps) {
+  const selectedPopsicles: boolean =
+    !userList.length || !previouslySelectedUserId.length;
+
   return (
     <>
       <div>
         <label htmlFor="rememberSelected">Remember Selected</label>
         <input
-          disabled={props.showingSelected || !props.userList.length}
+          disabled={disableInput || noUnselectedPopsicles}
           id="rememberSelected"
           type="checkbox"
-          checked={props.rememberSelected}
-          onChange={() => props.setRememberSelected(!props.rememberSelected)}
+          checked={rememberSelected}
+          onChange={() => setRememberSelected(!rememberSelected)}
         />
       </div>
       <button
-        disabled={props.showingSelected || !props.userList.length}
+        disabled={disableInput || noUnselectedPopsicles}
         onClick={() => {
-          const unselectedUserList = props.userList.filter((user: User) => {
-            return user.selected === false;
-          });
-          props.setSelectedUser(pickRandomPopsicle(unselectedUserList));
-          props.setShowingSelected(true);
+          setSelectedUserId(pickRandomPopsicleId(unselectedUserListId));
         }}
       >
         Random popsicle
       </button>
       <button
-        disabled={props.showingSelected || !props.userList.length}
+        disabled={disableInput || selectedPopsicles}
         onClick={() => {
-          props.setSelectedUser({});
-          props.setUserList([]);
-          props.setShowingSelected(false);
+          setPreviouslySelectedUserId([]);
+        }}
+      >
+        Reset popsicles
+      </button>
+      <button
+        disabled={disableInput || noUnselectedPopsicles}
+        onClick={() => {
+          setPreviouslySelectedUserId([]);
+          setUserList([]);
         }}
       >
         Remove all popsicles
       </button>
     </>
   );
-}
+};
 
 export default Controls;
