@@ -3,49 +3,80 @@ import SelectedPopsicle from "./SelectedPopsicle";
 // import SelectedUser from "./SelectedUser";
 import { User } from "../../types";
 import { PopsiclePotProps } from "./types";
+import PopsicleStick from "./PopsicleStick";
 
 const PopsiclePot = (props: PopsiclePotProps) => {
-  // display selected users / not-selected users, pass list to each component
+  const {
+    userList,
+    setUserList,
+    selectedUserId,
+    setSelectedUserId,
+    previouslySelectedUserId,
+    setPreviouslySelectedUserId,
+    disableInput,
+    rememberSelected,
+  } = props;
+
+  const previouslySelectedUser = (user: User): boolean => {
+    if (
+      previouslySelectedUserId.find((id: number) => {
+        return user.id === id;
+      })
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <>
-      <h2>Popsicle Pot</h2>
-      {/* {props.userList.length === 0 ? null : <SelectedUser>} */}
+      <h2>Unselected Popsicles</h2>
+      {!userList.length
+        ? null
+        : userList.map((user: User) => {
+            if (!previouslySelectedUser(user)) {
+              return (
+                <PopsicleStick
+                  user={user}
+                  userList={userList}
+                  setUserList={setUserList}
+                  previouslySelectedUserId={previouslySelectedUserId}
+                  setPreviouslySelectedUserId={setPreviouslySelectedUserId}
+                  disableInput={disableInput}
+                />
+              );
+            }
+            return null;
+          })}
 
       <h2>Selected Popsicles</h2>
-      {props.userList.length
-        ? props.userList.map((user: User) => {
-            return (
-              // change this to check if user is in selectedArray
-              <div key={user.id}>
-                <p>{user.username}</p>
-                <button
-                  disabled={props.disableInput}
-                  onClick={() => {
-                    let newArr = [...props.userList];
-                    const removeIndex = newArr.indexOf(
-                      newArr.find((newUser) => newUser.id === user.id)!
-                    );
-                    newArr.splice(removeIndex, 1);
-                    props.setUserList(newArr);
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
-            );
-          })
-        : null}
+      {!userList.length
+        ? null
+        : userList.map((user: User) => {
+            if (previouslySelectedUser(user)) {
+              return (
+                <PopsicleStick
+                  user={user}
+                  userList={userList}
+                  setUserList={setUserList}
+                  previouslySelectedUserId={previouslySelectedUserId}
+                  setPreviouslySelectedUserId={setPreviouslySelectedUserId}
+                  disableInput={disableInput}
+                />
+              );
+            }
+            return null;
+          })}
 
-      {props.selectedUserId ? null : (
+      {!selectedUserId ? null : (
         <SelectedPopsicle
-          userList={props.userList}
-          setUserList={props.setUserList}
-          selectedUserId={props.selectedUserId}
-          setSelectedUserId={props.setSelectedUserId}
-          disableInput={props.disableInput}
-          rememberSelected={props.rememberSelected}
-          setRememberSelected={props.setRememberSelected}
+          userList={userList}
+          selectedUserId={selectedUserId}
+          setSelectedUserId={setSelectedUserId}
+          previouslySelectedUserId={previouslySelectedUserId}
+          setPreviouslySelectedUserId={setPreviouslySelectedUserId}
+          rememberSelected={rememberSelected}
         />
       )}
     </>
