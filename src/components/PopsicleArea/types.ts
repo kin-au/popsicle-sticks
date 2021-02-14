@@ -5,21 +5,26 @@ export interface PopsiclePotProps {
   setUserList: React.Dispatch<React.SetStateAction<UserList>>;
   selectedUserId: number | null;
   setSelectedUserId: React.Dispatch<React.SetStateAction<number | null>>;
+  previouslySelectedUserId: number[];
+  setPreviouslySelectedUserId: React.Dispatch<React.SetStateAction<number[]>>;
   disableInput: boolean;
   rememberSelected: boolean;
-  setRememberSelected: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface SelectedPopsicleProps {
-  userList: UserList;
-  setUserList: React.Dispatch<React.SetStateAction<UserList>>;
-  selectedUserId: number | null;
-  setSelectedUserId: React.Dispatch<React.SetStateAction<number | null>>;
-  disableInput: boolean;
-  rememberSelected: boolean;
-  setRememberSelected: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface PopsicleStickProps {
   user: User;
+  userList: UserList;
+  setUserList: React.Dispatch<React.SetStateAction<UserList>>;
+  previouslySelectedUserId: number[];
+  setPreviouslySelectedUserId: React.Dispatch<React.SetStateAction<number[]>>;
+  disableInput: boolean;
+}
+
+export interface SelectedPopsicleProps {
+  userList: UserList;
+  selectedUserId: number | null;
+  setSelectedUserId: React.Dispatch<React.SetStateAction<number | null>>;
+  previouslySelectedUserId: number[];
+  setPreviouslySelectedUserId: React.Dispatch<React.SetStateAction<number[]>>;
+  rememberSelected: boolean;
 }
