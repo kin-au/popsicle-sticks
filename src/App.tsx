@@ -4,17 +4,22 @@ import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import PopsiclePot from "./components/PopsicleArea/PopsiclePot";
 import Controls from "./components/Controls";
-import getData from "./utils/getData";
+import getUserData from "./utils/getUserData";
+import getOrganisationData from "./utils/getOrganisationData";
 import handleUserData from "./utils/handleUserData";
+import handleOrganisationData from "./utils/handleOrganisationData";
 import checkDuplicates from "./utils/checkDuplicates";
-import { SearchDataType, UserList } from "./types";
+import { ResponseDataType, SearchDataType, UserList } from "./types";
 
 const App = () => {
   const [userList, setUserList] = React.useState<UserList>([]);
   const [selectedUserId, setSelectedUserId] = React.useState<number | null>(
     null
   );
-  // const [previouslyselectedUserId, setpreviouslySelectedUserId] = React.useState<number[]>([]);
+  const [
+    previouslySelectedUserId,
+    setPreviouslySelectedUserId,
+  ] = React.useState<number[]>([]);
   const [rememberSelected, setRememberSelected] = React.useState<boolean>(true);
 
   const disableInput = selectedUserId != null;
@@ -23,9 +28,16 @@ const App = () => {
     searchType: SearchDataType,
     searchText: string
   ) => {
-    const responseData = await getData(searchType, searchText);
-    const handledData = handleUserData(responseData, searchType);
-    const checkedData = checkDuplicates(userList, handledData);
+    let responseData: ResponseDataType;
+    let handledData;
+    if (searchType === "user") {
+      responseData = await getUserData(searchText);
+      handledData = handleUserData(responseData);
+    } else if (searchType === "organisation") {
+      responseData = await getOrganisationData(searchText);
+      handledData = handleOrganisationData(responseData);
+    }
+    const checkedData = checkDuplicates(userList, handledData as UserList);
     setUserList([...userList, ...checkedData]);
   };
 
@@ -38,15 +50,18 @@ const App = () => {
         setUserList={setUserList}
         selectedUserId={selectedUserId}
         setSelectedUserId={setSelectedUserId}
+        previouslySelectedUserId={previouslySelectedUserId}
+        setPreviouslySelectedUserId={setPreviouslySelectedUserId}
         disableInput={disableInput}
         rememberSelected={rememberSelected}
-        setRememberSelected={setRememberSelected}
       />
       <Controls
         userList={userList}
         setUserList={setUserList}
         selectedUserId={selectedUserId}
         setSelectedUserId={setSelectedUserId}
+        previouslySelectedUserId={previouslySelectedUserId}
+        setPreviouslySelectedUserId={setPreviouslySelectedUserId}
         disableInput={disableInput}
         rememberSelected={rememberSelected}
         setRememberSelected={setRememberSelected}
