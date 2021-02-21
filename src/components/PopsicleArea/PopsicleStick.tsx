@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "../../types";
+import Button from "../Elements/Button";
 import { PopsicleStickProps } from "./types";
 
 const PopsicleStick = (props: PopsicleStickProps) => {
@@ -37,15 +38,15 @@ const PopsicleStick = (props: PopsicleStickProps) => {
   return (
     <div key={user.id}>
       <p>{user.username}</p>
-      <button
+      <Button
+        type="button"
         disabled={disableInput}
         onClick={() => {
           removeFromUserList();
           removeFromPreviouslySelected();
         }}
-      >
-        Remove
-      </button>
+        text="Remove"
+      />
     </div>
   );
 };

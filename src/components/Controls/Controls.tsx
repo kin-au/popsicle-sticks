@@ -1,5 +1,6 @@
 import React from "react";
 import pickRandomPopsicleId from "../../utils/pickRandomPopsicleId";
+import Button from "../Elements/Button";
 import { ControlsProps } from "./types";
 
 const Controls = (props: ControlsProps) => {
@@ -41,31 +42,31 @@ const Controls = (props: ControlsProps) => {
           onChange={() => setRememberSelected(!rememberSelected)}
         />
       </div>
-      <button
+      <Button
+        type="button"
         disabled={disableInput || noUnselectedPopsicles}
         onClick={() => {
           setSelectedUserId(pickRandomPopsicleId(unselectedUserListId));
         }}
-      >
-        Random popsicle
-      </button>
-      <button
+        text="Random popsicle"
+      />
+      <Button
+        type="button"
         disabled={disableInput || selectedPopsicles}
         onClick={() => {
           setPreviouslySelectedUserId([]);
         }}
-      >
-        Reset popsicles
-      </button>
-      <button
+        text="Reset popsicles"
+      />
+      <Button
+        type="button"
         disabled={disableInput || noUnselectedPopsicles}
         onClick={() => {
           setPreviouslySelectedUserId([]);
           setUserList([]);
         }}
-      >
-        Remove all popsicles
-      </button>
+        text="Remove all popsicles"
+      />
     </>
   );
 };

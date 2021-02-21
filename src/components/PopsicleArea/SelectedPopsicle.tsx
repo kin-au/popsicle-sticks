@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "../../types";
+import Button from "../Elements/Button";
 import { SelectedPopsicleProps } from "./types";
 
 const SelectedPopsicle = (props: SelectedPopsicleProps) => {
@@ -27,14 +28,14 @@ const SelectedPopsicle = (props: SelectedPopsicleProps) => {
   return (
     <>
       <h1>{user.username}</h1>
-      <button
+      <Button
+        type="button"
         onClick={() => {
           addToPreviouslySelected();
           setSelectedUserId(null);
         }}
-      >
-        OK
-      </button>
+        text="OK"
+      />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { SearchProps } from "./types";
 import { SearchDataType } from "../../types";
+import Button from "../Elements/Button";
 
 const Search = (props: SearchProps) => {
   const { disableInput, searchUsers } = props;
@@ -39,9 +40,12 @@ const Search = (props: SearchProps) => {
         <option value="user">User</option>
         <option value="organisation">Organisation</option>
       </select>
-      <button disabled={disableInput} type="submit" onClick={handleSubmit}>
-        Add
-      </button>
+      <Button
+        type="submit"
+        disabled={disableInput}
+        onClick={handleSubmit}
+        text="Add"
+      />
     </form>
   );
 };
