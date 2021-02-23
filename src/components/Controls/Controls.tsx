@@ -60,7 +60,7 @@ const Controls = (props: ControlsProps) => {
       />
       <Button
         type="button"
-        disabled={disableInput || noUnselectedPopsicles}
+        disabled={disableInput || !userList.length}
         onClick={() => {
           setPreviouslySelectedUserId([]);
           setUserList([]);
