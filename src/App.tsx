@@ -42,7 +42,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col h-screen p-2">
       <Header />
       <Search disableInput={disableInput} searchUsers={searchUsers} />
       <PopsiclePot
@@ -66,7 +66,7 @@ const App = () => {
         rememberSelected={rememberSelected}
         setRememberSelected={setRememberSelected}
       />
-    </>
+    </div>
   );
 };
 

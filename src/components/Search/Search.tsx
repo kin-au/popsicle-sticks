@@ -15,37 +15,47 @@ const Search = (props: SearchProps) => {
     setSearchText("");
   };
   return (
-    <form>
-      <label htmlFor="searchtext">Search</label>
-      <input
-        disabled={disableInput}
-        id="searchtext"
-        type="search"
-        placeholder="Find a GitHub user or organisation"
-        value={searchText}
-        autoFocus
-        required
-        onChange={(event) => setSearchText(event.target.value)}
-      ></input>
-      <label htmlFor="searchtype">Type</label>
-      <select
-        disabled={disableInput}
-        id="searchtype"
-        value={searchType}
-        required
-        onChange={(event) =>
-          setSearchType(event.target.value as SearchDataType)
-        }
-      >
-        <option value="user">User</option>
-        <option value="organisation">Organisation</option>
-      </select>
-      <Button
-        type="submit"
-        disabled={disableInput}
-        onClick={handleSubmit}
-        text="Add"
-      />
+    <form className="flex flex-col">
+      <div className="m-2">
+        <label htmlFor="searchtext" className="m-2">
+          Search
+        </label>
+        <input
+          disabled={disableInput}
+          id="searchtext"
+          type="search"
+          className="border border-blue-900 rounded p-2 m-2"
+          placeholder="Find a GitHub user or organisation"
+          value={searchText}
+          autoFocus
+          required
+          onChange={(event) => setSearchText(event.target.value)}
+        ></input>
+      </div>
+      <div className="m-2">
+        <label htmlFor="searchtype" className="m-2">
+          Type
+        </label>
+        <select
+          disabled={disableInput}
+          id="searchtype"
+          className="border border-blue-900 bg-white rounded p-2 m-2"
+          value={searchType}
+          required
+          onChange={(event) =>
+            setSearchType(event.target.value as SearchDataType)
+          }
+        >
+          <option value="user">User</option>
+          <option value="organisation">Organisation</option>
+        </select>
+        <Button
+          type="submit"
+          disabled={disableInput}
+          onClick={handleSubmit}
+          text="Add"
+        />
+      </div>
     </form>
   );
 };
