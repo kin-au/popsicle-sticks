@@ -26,17 +26,19 @@ const SelectedPopsicle = (props: SelectedPopsicleProps) => {
   };
 
   return (
-    <>
-      <h1>{user.username}</h1>
-      <Button
-        type="button"
-        onClick={() => {
-          addToPreviouslySelected();
-          setSelectedUserId(null);
-        }}
-        text="OK"
-      />
-    </>
+    <div className="flex flex-col justify-center fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-20">
+      <div className="flex flex-col justify-center self-center w-11/12 h-2/6 bg-white border rounded-md py-8">
+        <p className="text-7xl font-bold self-center pb-4">{user.username}</p>
+        <Button
+          type="button"
+          onClick={() => {
+            addToPreviouslySelected();
+            setSelectedUserId(null);
+          }}
+          text="OK"
+        />
+      </div>
+    </div>
   );
 };
 
