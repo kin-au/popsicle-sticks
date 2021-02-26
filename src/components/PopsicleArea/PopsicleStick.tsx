@@ -36,7 +36,7 @@ const PopsicleStick = (props: PopsicleStickProps) => {
   };
 
   return (
-    <div key={user.id}>
+    <div key={user.id} className="flex justify-between">
       <p>{user.username}</p>
       <Button
         type="button"
@@ -45,7 +45,7 @@ const PopsicleStick = (props: PopsicleStickProps) => {
           removeFromUserList();
           removeFromPreviouslySelected();
         }}
-        text="Remove"
+        text="&times;"
       />
     </div>
   );

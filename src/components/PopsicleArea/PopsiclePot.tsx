@@ -31,43 +31,49 @@ const PopsiclePot = (props: PopsiclePotProps) => {
 
   return (
     <>
-      <h2>Unselected Popsicles</h2>
-      {!userList.length
-        ? null
-        : userList.map((user: User) => {
-            if (!previouslySelectedUser(user)) {
-              return (
-                <PopsicleStick
-                  user={user}
-                  userList={userList}
-                  setUserList={setUserList}
-                  previouslySelectedUserId={previouslySelectedUserId}
-                  setPreviouslySelectedUserId={setPreviouslySelectedUserId}
-                  disableInput={disableInput}
-                />
-              );
-            }
-            return null;
-          })}
+      <div className="flex justify-between flex-nowrap">
+        <div className="flex flex-col">
+          <h2 className="text-xl font-semibold">Unselected Popsicles</h2>
+          {!userList.length
+            ? null
+            : userList.map((user: User) => {
+                if (!previouslySelectedUser(user)) {
+                  return (
+                    <PopsicleStick
+                      user={user}
+                      userList={userList}
+                      setUserList={setUserList}
+                      previouslySelectedUserId={previouslySelectedUserId}
+                      setPreviouslySelectedUserId={setPreviouslySelectedUserId}
+                      disableInput={disableInput}
+                    />
+                  );
+                }
+                return null;
+              })}
+        </div>
 
-      <h2>Selected Popsicles</h2>
-      {!userList.length
-        ? null
-        : userList.map((user: User) => {
-            if (previouslySelectedUser(user)) {
-              return (
-                <PopsicleStick
-                  user={user}
-                  userList={userList}
-                  setUserList={setUserList}
-                  previouslySelectedUserId={previouslySelectedUserId}
-                  setPreviouslySelectedUserId={setPreviouslySelectedUserId}
-                  disableInput={disableInput}
-                />
-              );
-            }
-            return null;
-          })}
+        <div className="flex flex-col">
+          <h2 className="text-xl font-semibold">Selected Popsicles</h2>
+          {!userList.length
+            ? null
+            : userList.map((user: User) => {
+                if (previouslySelectedUser(user)) {
+                  return (
+                    <PopsicleStick
+                      user={user}
+                      userList={userList}
+                      setUserList={setUserList}
+                      previouslySelectedUserId={previouslySelectedUserId}
+                      setPreviouslySelectedUserId={setPreviouslySelectedUserId}
+                      disableInput={disableInput}
+                    />
+                  );
+                }
+                return null;
+              })}
+        </div>
+      </div>
 
       {!selectedUserId ? null : (
         <SelectedPopsicle
