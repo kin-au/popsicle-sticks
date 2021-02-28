@@ -8,7 +8,7 @@ const Button = (props: ButtonProps) => {
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className="bg-blue-900 hover:opacity-75 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-100 rounded text-gray-50 font-semibold p-2 m-2"
+      className="bg-blue-900 hover:opacity-75 transition-all duration-100 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-100 rounded text-gray-50 font-semibold p-2 m-2"
     >
       {text}
     </button>
