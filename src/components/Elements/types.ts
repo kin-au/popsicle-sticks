@@ -7,3 +7,8 @@ export interface ButtonProps {
   onClick: any;
   text: string;
 }
+
+export interface CloseButtonProps {
+  disabled?: boolean;
+  onClick: any;
+}

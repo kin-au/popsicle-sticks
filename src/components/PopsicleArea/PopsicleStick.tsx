@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "../../types";
-import Button from "../Elements/Button";
+import CloseButton from "../Elements/CloseButton";
 import { PopsicleStickProps } from "./types";
 
 const PopsicleStick = (props: PopsicleStickProps) => {
@@ -36,16 +36,19 @@ const PopsicleStick = (props: PopsicleStickProps) => {
   };
 
   return (
-    <div key={user.id} className="flex justify-between">
-      <p>{user.username}</p>
-      <Button
-        type="button"
+    <div
+      key={user.id}
+      className="flex justify-between m-1 p-1 rounded-full bg-yellow-800"
+    >
+      <p className="self-center mx-auto text-gray-50 font-semibold">
+        {user.username}
+      </p>
+      <CloseButton
         disabled={disableInput}
         onClick={() => {
           removeFromUserList();
           removeFromPreviouslySelected();
         }}
-        text="&times;"
       />
     </div>
   );

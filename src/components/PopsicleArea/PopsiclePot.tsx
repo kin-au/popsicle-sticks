@@ -32,7 +32,7 @@ const PopsiclePot = (props: PopsiclePotProps) => {
   return (
     <>
       <div className="flex justify-between flex-nowrap">
-        <div className="flex flex-col">
+        <div className="flex flex-col w-10/12">
           <h2 className="text-xl font-semibold">Unselected Popsicles</h2>
           {!userList.length
             ? null
@@ -53,7 +53,7 @@ const PopsiclePot = (props: PopsiclePotProps) => {
               })}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col w-10/12">
           <h2 className="text-xl font-semibold">Selected Popsicles</h2>
           {!userList.length
             ? null
