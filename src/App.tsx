@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Search from "./components/Search/Search";
 import PopsiclePot from "./components/PopsicleArea/PopsiclePot";
 import Controls from "./components/Controls";
@@ -66,6 +67,7 @@ const App = () => {
         rememberSelected={rememberSelected}
         setRememberSelected={setRememberSelected}
       />
+      <Footer />
     </div>
   );
 };
