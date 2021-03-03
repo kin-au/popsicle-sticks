@@ -6,15 +6,13 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: [
-        "Noto Sans JP",
-        // "Playfair Display",
-        ...defaultTheme.fontFamily.sans,
-      ],
+      sans: ["Noto Sans KR", ...defaultTheme.fontFamily.sans],
+      serif: ["Shippori Mincho", ...defaultTheme.fontFamily.serif],
     },
   },
   variants: {
     extend: {
+      animation: ["hover"],
       backgroundColor: ["disabled"],
       cursor: ["disabled"],
       opacity: ["disabled"],
