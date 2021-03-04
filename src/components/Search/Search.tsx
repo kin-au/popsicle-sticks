@@ -39,7 +39,7 @@ const Search = (props: SearchProps) => {
         <select
           disabled={disableInput}
           id="searchtype"
-          className="border border-blue-900 bg-white rounded p-2 m-2"
+          className="border cursor-pointer border-blue-900 bg-white rounded p-2 m-2"
           value={searchType}
           required
           onChange={(event) =>
