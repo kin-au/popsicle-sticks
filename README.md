@@ -6,15 +6,15 @@ During my time at [FAC](https://www.foundersandcoders.com), we would randomly se
 
 ##### Project goal:
 
-- Learn to use [TypeScript](https://www.typescriptlang.org) with [React](https://reactjs.org)
+- Learn to use [TypeScript](https://www.typescriptlang.org) with [React](https://reactjs.org) and [Tailwind](https://tailwindcss.com)
 
 ##### User stories:
 
 - As a user, I want to be able to search/select a GitHub username or organisation to add usernames to a visible list
 - As a user, I want to be able to modify this list by adding (via the same search feature) or removing individual GitHub usernames
 - As a user, I want to click a button to randomly select one of the Github usernames from the list, and see the selected user
-- As a user, I want to toggle the option to either remember the Github usernames that have already been randomly selected, or to reset the list of Github usernames
+- As a user, I want to toggle the option to either remember the Github usernames that have already been randomly selected
 - As a user, I want to be able to reset the current list of Github usernames
 - As a user, I want to be able to remove the current list of Github usernames, returning to the home page search/select feature
-- As a user, I want to interact with an intuitive interface
+- As a user, I want to interact with a device responsive and intuitively designed interface
 - As a user, I want to be able to toggle between light:full_moon:/dark:new_moon:/rainbow:rainbow: theme
