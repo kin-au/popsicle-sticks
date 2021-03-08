@@ -16,7 +16,7 @@ const Search = (props: SearchProps) => {
   };
   return (
     <form className="flex flex-col">
-      <div className="m-2">
+      <div className="m-2 flex justify-between items-center">
         <label htmlFor="searchtext" className="m-2">
           Search
         </label>
@@ -24,7 +24,7 @@ const Search = (props: SearchProps) => {
           disabled={disableInput}
           id="searchtext"
           type="search"
-          className="border border-blue-900 rounded p-2 m-2"
+          className="flex-grow border border-blue-900 rounded p-2 m-2"
           placeholder="Find a GitHub user or organisation"
           value={searchText}
           autoFocus
@@ -32,14 +32,14 @@ const Search = (props: SearchProps) => {
           onChange={(event) => setSearchText(event.target.value)}
         ></input>
       </div>
-      <div className="m-2">
+      <div className="m-2 flex justify-between items-center">
         <label htmlFor="searchtype" className="m-2">
           Type
         </label>
         <select
           disabled={disableInput}
           id="searchtype"
-          className="border cursor-pointer border-blue-900 bg-white rounded p-2 m-2"
+          className="flex-grow border cursor-pointer border-blue-900 bg-white rounded p-2 m-2"
           value={searchType}
           required
           onChange={(event) =>
