@@ -39,6 +39,12 @@ const Controls = (props: ControlsProps) => {
           id="rememberSelected"
           type="checkbox"
           checked={rememberSelected}
+          className="ml-2 w-6 h-6 rounded-full 
+          bg-blue-900 text-blue-900 border-white border-2 
+          checked:border-white checked:border-2 
+          group-hover:border-white group-hover:border-2 hover:cursor-pointer 
+          disabled:bg-gray-200 disabled:text-gray-200 disabled:cursor-not-allowed disabled:opacity-100 
+          focus:ring-transparent focus:outline-none"
           onChange={() => setRememberSelected(!rememberSelected)}
         />
       </div>
