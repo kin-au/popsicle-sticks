@@ -31,9 +31,16 @@ const Controls = (props: ControlsProps) => {
     !userList.length || !previouslySelectedUserId.length;
 
   return (
-    <>
-      <div>
-        <label htmlFor="rememberSelected">Remember Selected</label>
+    <div className="flex flex-wrap">
+      <label
+        htmlFor="rememberSelected"
+        className={`flex items-center group m-2 p-2 text-gray-50 font-semibold rounded transition-all duration-100 ${
+          disableInput || noUnselectedPopsicles
+            ? "bg-gray-200 opacity-100 cursor-not-allowed"
+            : "bg-blue-900 hover:opacity-75 cursor-pointer"
+        }`}
+      >
+        Remember Selected
         <input
           disabled={disableInput || noUnselectedPopsicles}
           id="rememberSelected"
@@ -47,7 +54,7 @@ const Controls = (props: ControlsProps) => {
           focus:ring-transparent focus:outline-none"
           onChange={() => setRememberSelected(!rememberSelected)}
         />
-      </div>
+      </label>
       <Button
         type="button"
         disabled={disableInput || noUnselectedPopsicles}
@@ -73,7 +80,7 @@ const Controls = (props: ControlsProps) => {
         }}
         text="Remove all popsicles"
       />
-    </>
+    </div>
   );
 };
 
