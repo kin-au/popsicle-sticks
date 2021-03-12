@@ -31,7 +31,7 @@ const PopsiclePot = (props: PopsiclePotProps) => {
 
   return (
     <>
-      <div className="flex justify-between flex-nowrap mb-auto">
+      <div className="flex justify-between flex-nowrap md:flex-grow">
         <div className="flex flex-col w-10/12">
           <h2 className="mb-2 text-xl font-semibold">Popsicle Pot</h2>
           {!userList.length

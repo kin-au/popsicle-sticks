@@ -45,17 +45,19 @@ const App = () => {
   return (
     <div className="flex flex-col h-screen p-2">
       <Header />
-      <Search disableInput={disableInput} searchUsers={searchUsers} />
-      <PopsiclePot
-        userList={userList}
-        setUserList={setUserList}
-        selectedUserId={selectedUserId}
-        setSelectedUserId={setSelectedUserId}
-        previouslySelectedUserId={previouslySelectedUserId}
-        setPreviouslySelectedUserId={setPreviouslySelectedUserId}
-        disableInput={disableInput}
-        rememberSelected={rememberSelected}
-      />
+      <div className="flex flex-col md:flex-row mb-auto ">
+        <Search disableInput={disableInput} searchUsers={searchUsers} />
+        <PopsiclePot
+          userList={userList}
+          setUserList={setUserList}
+          selectedUserId={selectedUserId}
+          setSelectedUserId={setSelectedUserId}
+          previouslySelectedUserId={previouslySelectedUserId}
+          setPreviouslySelectedUserId={setPreviouslySelectedUserId}
+          disableInput={disableInput}
+          rememberSelected={rememberSelected}
+        />
+      </div>
       <Controls
         userList={userList}
         setUserList={setUserList}
