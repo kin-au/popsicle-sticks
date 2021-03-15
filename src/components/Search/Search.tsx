@@ -15,7 +15,7 @@ const Search = (props: SearchProps) => {
     setSearchText("");
   };
   return (
-    <form className="flex flex-col md:flex-grow">
+    <form className="flex flex-col mb-4 md:flex-grow md:mr-4">
       <div className="m-2 flex justify-between items-center">
         <label htmlFor="searchtext" className="m-2">
           Search

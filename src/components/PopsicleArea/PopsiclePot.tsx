@@ -1,6 +1,5 @@
 import React from "react";
 import SelectedPopsicle from "./SelectedPopsicle";
-// import SelectedUser from "./SelectedUser";
 import { User } from "../../types";
 import { PopsiclePotProps } from "./types";
 import PopsicleStick from "./PopsicleStick";
