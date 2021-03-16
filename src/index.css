@@ -11,6 +11,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.theme-light {
+  --custom-background: #fff;
+  --custom-button: #002e7d;
+  --custom-main-text: #2b2b2b;
+  --custom-button-text: #fafafa;
+  --custom-disabled-input: #e8e8e8;
+  --custom-popsicle: #92400e;
+  --custom-link: #ff7b00;
+}
+
+.theme-dark {
+  --custom-background: #000;
+  --custom-button: #002e7d;
+  --custom-main-text: #2b2b2b;
+  --custom-button-text: #fafafa;
+  --custom-disabled-input: #e8e8e8;
+  --custom-popsicle: #92400e;
+  --custom-link: #ff7b00;
+}
+
+.theme-rainbow {
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

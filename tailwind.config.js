@@ -4,7 +4,17 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "custom-background": "var(--custom-background)",
+        "custom-button": "var(--custom-button)",
+        "custom-main-text": "var(--custom-main-text)",
+        "custom-button-text": "var(--custom-button-text)",
+        "custom-disabled-input": "var(--custom-disabled-input)",
+        "custom-popsicle": "var(--custom-popsicle)",
+        "custom-link": "var(--custom-link)",
+      },
+    },
     fontFamily: {
       sans: ["Noto Sans KR", ...defaultTheme.fontFamily.sans],
       serif: ["Shippori Mincho", ...defaultTheme.fontFamily.serif],
