@@ -32,7 +32,7 @@ const PopsiclePot = (props: PopsiclePotProps) => {
     <>
       <div className="flex justify-between flex-nowrap md:flex-grow">
         <div className="flex flex-col w-10/12">
-          <h2 className="self-center mb-2 text-xl font-semibold">
+          <h2 className="self-center mb-2 text-xl font-semibold text-custom-main-text">
             Popsicle Pot
           </h2>
           {!userList.length
@@ -55,7 +55,7 @@ const PopsiclePot = (props: PopsiclePotProps) => {
         </div>
 
         <div className="flex flex-col w-10/12">
-          <h2 className="self-center mb-2 text-xl font-semibold">
+          <h2 className="self-center mb-2 text-xl font-semibold text-custom-main-text">
             Selected Popsicles
           </h2>
           {!userList.length

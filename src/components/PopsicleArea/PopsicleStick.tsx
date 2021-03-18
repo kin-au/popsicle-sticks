@@ -38,10 +38,10 @@ const PopsicleStick = (props: PopsicleStickProps) => {
   return (
     <div
       key={user.id}
-      className="flex justify-between items-center m-1 p-1 rounded-full bg-yellow-800"
+      className="flex justify-between items-center m-1 p-1 rounded-full bg-custom-popsicle"
     >
       <img src={user.avatar} alt="avatar" className="h-8 rounded-full" />
-      <p className="mx-auto font-serif text-gray-50 font-medium text-lg truncate">
+      <p className="mx-auto font-serif text-custom-popsicle-text font-medium text-lg truncate">
         {user.username}
       </p>
       <CloseButton
