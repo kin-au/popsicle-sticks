@@ -34,10 +34,10 @@ const Controls = (props: ControlsProps) => {
     <div className="flex flex-wrap self-center">
       <label
         htmlFor="rememberSelected"
-        className={`flex items-center group m-2 p-2 text-gray-50 font-semibold rounded transition-all duration-100 ${
+        className={`flex items-center group m-2 p-2 text-custom-button-text font-semibold rounded transition-all duration-100 ${
           disableInput || noUnselectedPopsicles
-            ? "bg-gray-200 opacity-100 cursor-not-allowed"
-            : "bg-blue-900 hover:opacity-75 cursor-pointer"
+            ? "bg-custom-disabled-input opacity-100 cursor-not-allowed"
+            : "bg-custom-button hover:opacity-75 cursor-pointer"
         }`}
       >
         Remember Selected
@@ -47,10 +47,10 @@ const Controls = (props: ControlsProps) => {
           type="checkbox"
           checked={rememberSelected}
           className="ml-2 w-6 h-6 rounded-full 
-          bg-blue-900 text-blue-900 border-white border-2 
-          checked:border-white checked:border-2 
-          group-hover:border-white group-hover:border-2 hover:cursor-pointer 
-          disabled:bg-gray-200 disabled:text-gray-200 disabled:cursor-not-allowed disabled:opacity-100 
+          bg-custom-button text-custom-button border-custom-button-text border-2 
+          checked:border-custom-button-text checked:border-2 
+          group-hover:border-custom-button-text group-hover:border-2 hover:cursor-pointer 
+          disabled:bg-custom-disabled-input disabled:text-custom-disabled-input disabled:cursor-not-allowed disabled:opacity-100 
           focus:ring-transparent focus:outline-none"
           onChange={() => setRememberSelected(!rememberSelected)}
         />
