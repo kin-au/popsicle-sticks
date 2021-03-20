@@ -1,3 +1,5 @@
+export type ThemeType = "theme-light" | "theme-dark" | "theme-rainbow";
+
 export interface User {
   avatar: string;
   url: string;

@@ -1,10 +1,19 @@
 import React from "react";
+import { HeaderProps } from "./types";
 
-function Header() {
+function Header(props: HeaderProps) {
+  const { theme, setTheme } = props;
+
   return (
-    <header className="self-center my-8 text-center text-custom-main-text text-4xl font-bold">
-      POPSICLE STICKS
-    </header>
+    <div className="self-center relative w-full my-8 text-center text-custom-main-text text-4xl font-bold">
+      <header>POPSICLE STICKS</header>
+      <button
+        className="absolute top-0 right-2 bg-green-500"
+        onClick={() => setTheme("theme-dark")}
+      >
+        THEME DARK
+      </button>
+    </div>
   );
 }
 

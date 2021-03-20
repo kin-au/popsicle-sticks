@@ -10,9 +10,10 @@ import getOrganisationData from "./utils/getOrganisationData";
 import handleUserData from "./utils/handleUserData";
 import handleOrganisationData from "./utils/handleOrganisationData";
 import checkDuplicates from "./utils/checkDuplicates";
-import { ResponseDataType, SearchDataType, UserList } from "./types";
+import { ResponseDataType, SearchDataType, ThemeType, UserList } from "./types";
 
 const App = () => {
+  const [theme, setTheme] = React.useState<ThemeType>("theme-light");
   const [userList, setUserList] = React.useState<UserList>([]);
   const [selectedUserId, setSelectedUserId] = React.useState<number | null>(
     null
@@ -43,8 +44,8 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen p-2">
-      <Header />
+    <div className={`flex flex-col h-screen p-2 bg-custom-background ${theme}`}>
+      <Header theme={theme} setTheme={setTheme} />
       <div className="flex flex-col md:flex-row mb-auto ">
         <Search disableInput={disableInput} searchUsers={searchUsers} />
         <PopsiclePot
