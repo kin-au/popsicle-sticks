@@ -36,7 +36,7 @@ const Controls = (props: ControlsProps) => {
         htmlFor="rememberSelected"
         className={`flex items-center group m-2 p-2 text-custom-button-text font-semibold rounded transition-all duration-100 ${
           disableInput || noUnselectedPopsicles
-            ? "bg-custom-disabled-input opacity-100 cursor-not-allowed"
+            ? "bg-custom-disabled-input text-custom-disabled-text opacity-100 cursor-not-allowed"
             : "bg-custom-button hover:opacity-75 cursor-pointer"
         }`}
       >
@@ -50,7 +50,7 @@ const Controls = (props: ControlsProps) => {
           bg-custom-button text-custom-button border-custom-button-text border-2 
           checked:border-custom-button-text checked:border-2 
           group-hover:border-custom-button-text group-hover:border-2 hover:cursor-pointer 
-          disabled:bg-custom-disabled-input disabled:text-custom-disabled-input disabled:cursor-not-allowed disabled:opacity-100 
+          disabled:bg-custom-disabled-input disabled:text-custom-disabled-input disabled:border-custom-disabled-text disabled:hover:border-custom-disabled-text disabled:cursor-not-allowed disabled:opacity-100 
           focus:ring-transparent focus:outline-none"
           onChange={() => setRememberSelected(!rememberSelected)}
         />

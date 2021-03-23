@@ -12,6 +12,7 @@ module.exports = {
         "custom-button-text": "var(--custom-button-text)",
         "custom-input-text": "var(--custom-input-text)",
         "custom-disabled-input": "var(--custom-disabled-input)",
+        "custom-disabled-text": "var(--custom-disabled-text)",
         "custom-popsicle": "var(--custom-popsicle)",
         "custom-popsicle-text": "var(--custom-popsicle-text)",
         "custom-link": "var(--custom-link)",
@@ -26,7 +27,7 @@ module.exports = {
     extend: {
       animation: ["hover"],
       backgroundColor: ["disabled"],
-      borderColor: ["checked", "hover"],
+      borderColor: ["checked", "disabled", "hover"],
       borderWidth: ["checked", "hover", "focus" /*, "group-focus" */],
       cursor: ["disabled", "hover"],
       opacity: ["disabled"],

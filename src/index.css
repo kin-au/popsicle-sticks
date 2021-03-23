@@ -18,6 +18,7 @@ body {
   --custom-button-text: #fafafa;
   --custom-input-text: #2b2b2b;
   --custom-disabled-input: #e8e8e8;
+  --custom-disabled-text: #fafafa;
   --custom-popsicle: #92400e;
   --custom-popsicle-text: #fafafa;
   --custom-link: #ff7b00;
@@ -30,6 +31,7 @@ body {
   --custom-button-text: #2b2b2b;
   --custom-input-text: #2b2b2b;
   --custom-disabled-input: #595959;
+  --custom-disabled-text: #2b2b2b;
   --custom-popsicle: #92400e;
   --custom-popsicle-text: #fafafa;
   --custom-link: #ff7b00;
