@@ -38,6 +38,16 @@ body {
 }
 
 .theme-rainbow {
+  --custom-background: #ffffa1;
+  --custom-button: #a1dbff;
+  --custom-main-text: #228a00;
+  --custom-button-text: #228a00;
+  --custom-input-text: #228a00;
+  --custom-disabled-input: #e8e8e8;
+  --custom-disabled-text: #fafafa;
+  --custom-popsicle: #ffc466;
+  --custom-popsicle-text: #ff4242;
+  --custom-link: #ff7b00;
 }
 
 code {
