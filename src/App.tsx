@@ -44,7 +44,9 @@ const App = () => {
   };
 
   return (
-    <div className={`flex flex-col h-screen p-2 bg-custom-background ${theme}`}>
+    <div
+      className={`flex flex-col h-screen overflow-x-hidden p-2 bg-custom-background ${theme}`}
+    >
       <Header theme={theme} setTheme={setTheme} />
       <div className="flex flex-col md:flex-row mb-auto ">
         <Search disableInput={disableInput} searchUsers={searchUsers} />

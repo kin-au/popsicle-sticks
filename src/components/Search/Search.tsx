@@ -24,7 +24,7 @@ const Search = (props: SearchProps) => {
           disabled={disableInput}
           id="searchtext"
           type="search"
-          className="flex-grow border border-custom-button text-custom-input-text rounded p-2 m-2"
+          className="flex-grow min-w-0 border border-custom-button text-custom-input-text rounded p-2 m-2"
           placeholder="Find a GitHub user or organisation"
           value={searchText}
           autoFocus
@@ -39,7 +39,7 @@ const Search = (props: SearchProps) => {
         <select
           disabled={disableInput}
           id="searchtype"
-          className="flex-grow border cursor-pointer border-custom-button text-custom-input-text rounded p-2 m-2"
+          className="flex-grow min-w-0 border cursor-pointer border-custom-button text-custom-input-text rounded p-2 m-2"
           value={searchType}
           required
           onChange={(event) =>
