@@ -32,9 +32,9 @@ const SelectedPopsicle = (props: SelectedPopsicleProps) => {
           <img
             src={user.avatar}
             alt="avatar"
-            className="absolute left-2 h-16 rounded-full"
+            className="absolute left-2 h-14 rounded-full md:h-16"
           />
-          <p className="text-center text-5xl font-serif text-custom-popsicle-text font-medium">
+          <p className="text-center text-3xl font-serif text-custom-popsicle-text font-medium md:text-5xl">
             {user.username}
           </p>
         </div>

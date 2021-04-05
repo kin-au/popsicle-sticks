@@ -31,7 +31,7 @@ const Controls = (props: ControlsProps) => {
     !userList.length || !previouslySelectedUserId.length;
 
   return (
-    <div className="flex flex-wrap self-center">
+    <div className="flex flex-wrap self-center mt-4">
       <label
         htmlFor="rememberSelected"
         className={`flex items-center group m-2 p-2 text-custom-button-text font-semibold rounded transition-all duration-100 ${
