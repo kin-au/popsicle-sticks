@@ -75,8 +75,14 @@ const Controls = (props: ControlsProps) => {
         type="button"
         disabled={disableInput || !userList.length}
         onClick={() => {
-          setPreviouslySelectedUserId([]);
-          setUserList([]);
+          if (
+            window.confirm(
+              "Are you sure you want to remove all popsicles from the pot?"
+            )
+          ) {
+            setPreviouslySelectedUserId([]);
+            setUserList([]);
+          }
         }}
         text="Remove all popsicles"
       />
