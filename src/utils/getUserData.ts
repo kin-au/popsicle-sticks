@@ -7,6 +7,7 @@ const getUserData = (searchText: string): Promise<GetUserDataResponse> => {
   return fetch(url, {
     method: "GET",
     headers: {
+      "Access-Control-Allow-Origin": "*",
       token: token,
     },
   })
